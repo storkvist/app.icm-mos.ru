@@ -7,6 +7,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'simplecov', require: false
+end
+
 # ###
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
