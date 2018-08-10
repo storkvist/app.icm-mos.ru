@@ -1,0 +1,19 @@
+require:
+  - rubocop-rspec
+
+inherit_from:
+  - .rubocop/all.yml
+  - .rubocop/metrics.yml
+  - .rubocop/rails.yml
+  - .rubocop/rspec.yml
+  - .rubocop/style.yml
+
+AllCops:
+  Exclude:
+    - db/migrate/**/*
+    - db/schema.rb
+    - legacy/**/*
+    - node_modules/**/*
+    - public/**/*
+    - vendor/**/*
+    - Gemfile.lock
