@@ -43,13 +43,23 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
+    bcrypt (3.1.12)
     bindex (0.5.0)
     bootsnap (1.3.1)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.2.0)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    devise (4.4.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
+    devise-i18n (1.6.4)
+      devise (>= 4.4)
     diff-lcs (1.3)
     docile (1.3.1)
     erubi (1.7.1)
@@ -84,6 +94,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
+    orm_adapter (0.5.0)
     pg (1.0.0)
     puma (3.12.0)
     rack (2.0.5)
@@ -119,6 +130,9 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.1)
@@ -170,13 +184,12 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    turbolinks (5.1.1)
-      turbolinks-source (~> 5.1)
-    turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.18)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.7)
+      rack (>= 1.0)
     web-console (3.6.2)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -196,18 +209,20 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
+  cancancan
+  devise
+  devise-i18n
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
-  pg (>= 0.18, < 2.0)
-  puma (~> 3.11)
-  rails (~> 5.2.1)
+  pg
+  puma
+  rails
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
-  turbolinks (~> 5)
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   webpacker
