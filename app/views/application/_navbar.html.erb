@@ -1,0 +1,27 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://app.icm-mos.ru">
+      <%= image_tag asset_pack_path('images/icm.png'), alt: 'ICM' %>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div class="navbar-menu">
+    <% if user_signed_in? %>
+      <%= render_navigation renderer: :links %>
+    <% end %>
+
+    <div class="navbar-end">
+      <% if user_signed_in? %>
+        <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'navbar-item' %>
+      <% else %>
+        <%= link_to 'Войти', new_user_session_path, class: 'navbar-item' %>
+      <% end %>
+    </div>
+  </div>
+</nav>

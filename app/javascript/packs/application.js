@@ -21,3 +21,4 @@ const context = require.context('controllers', true, /.js$/)
 application.load(definitionsFromContext(context))
 
 import 'design';
+import 'images';

@@ -6,14 +6,24 @@ ruby '2.5.1'
 gem 'cancancan'
 gem 'devise'
 gem 'devise-i18n'
+gem 'mini_racer', platforms: :ruby
 gem 'pg'
 gem 'puma'
 gem 'rails'
+gem 'simple-navigation'
 gem 'webpacker'
 
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+end
+
+group :development do
+  gem 'capistrano', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano3-puma', require: false
 end
 
 group :test do
@@ -30,8 +40,6 @@ end
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
