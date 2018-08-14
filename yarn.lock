@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@fortawesome/fontawesome-free@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.2.0.tgz#50cd9856774351c56c0b1b0db4efe122d7913e58"
+
 "@rails/webpacker@3.5":
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.5.5.tgz#8911c66bcefc8bc6b91270e92f0d39e3c2d43116"
@@ -1746,6 +1750,10 @@ dns-txt@^2.0.2:
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
+
+dropzone@^5.5.1:
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/dropzone/-/dropzone-5.5.1.tgz#06e2f513e61d6aa363d4b556f18574f47cf7ba26"
 
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.6.0"

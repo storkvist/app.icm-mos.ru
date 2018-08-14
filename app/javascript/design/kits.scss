@@ -1,0 +1,40 @@
+@import './variables.scss';
+
+.kit {
+  &:not(:last-child) {
+    border-bottom: 1px solid $grey-light;
+  }
+
+  &__name {
+    margin-bottom: 0.5rem !important;
+  }
+
+  &__dropzone {
+    border: 1px dashed $grey-lighter;
+    height: 128px;
+    padding: 35px 5px 5px 12px;
+    width: 128px;
+
+    .dz-preview {
+      display: none;
+    }
+  }
+
+  &__images {
+    display: flex;
+    margin: 1rem 0;
+
+    .images {
+      display: flex;
+      margin-left: 1rem;
+
+      figure {
+        overflow: hidden;
+
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}

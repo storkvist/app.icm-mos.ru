@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  default_form_builder IcmFormBuilder
+
   rescue_from ::CanCan::AccessDenied do |exception|
     Rails.logger.info "Access denied on #{exception.action} #{exception.subject.inspect}"
 

@@ -13,7 +13,7 @@ require 'sprockets/railtie'
 
 Bundler.require(*Rails.groups)
 
-module ICM # rubocop:disable Style/ClassAndModuleChildren
+module Icm # rubocop:disable Style/ClassAndModuleChildren
   class Application < Rails::Application
     config.load_defaults 5.2
 

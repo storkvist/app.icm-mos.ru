@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :categories, only: %i[index]
-  resources :kits, only: %i[index]
-  resources :scales, only: %i[index]
+  resources :kits, except: :show do
+    get :images, on: :member
+  end
 
   root to: 'kits#index'
 end

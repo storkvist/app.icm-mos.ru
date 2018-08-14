@@ -1,0 +1,30 @@
+<%= form_with model: @kit, local: true do |f| %>
+  <%= f.text_field_input :article %>
+
+  <%= f.text_field_input :name_en %>
+  <%= f.text_field_input :name_ru %>
+
+  <%= f.text_area_input :description_en %>
+  <%= f.text_area_input :description_ru %>
+
+  <div class="field">
+    <%= f.label :year, class: 'label' %>
+    <div class="control">
+      <%= f.number_field :year, class: 'input' %>
+    </div>
+    <p class="help">
+      Можно заполнять только для моделей текущего года (<%= Time.zone.today.year %>). В таком случае, они могут быть помечены, как
+      «Новинка». Для остальных моделей это поле можно и не заполнять, если не хочется.
+    </p>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= f.submit class: 'button is-primary' %>
+    </div>
+
+    <div class="control">
+      <%= link_to 'отменить', kits_path, class: 'button is-text' %>
+    </div>
+  </div>
+<% end %>

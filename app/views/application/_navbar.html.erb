@@ -12,15 +12,11 @@
   </div>
 
   <div class="navbar-menu">
-    <% if user_signed_in? %>
-      <%= render_navigation renderer: :links %>
-    <% end %>
-
     <div class="navbar-end">
       <% if user_signed_in? %>
         <%= link_to 'Выйти', destroy_user_session_path, method: :delete, class: 'navbar-item' %>
       <% else %>
-        <%= link_to 'Войти', new_user_session_path, class: 'navbar-item' %>
+        <%= link_to('Войти', new_user_session_path, class: 'navbar-item') unless current_page?(new_user_session_url) %>
       <% end %>
     </div>
   </div>

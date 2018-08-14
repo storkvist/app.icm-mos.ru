@@ -6,11 +6,12 @@ ruby '2.5.1'
 gem 'cancancan'
 gem 'devise'
 gem 'devise-i18n'
+gem 'mini_magick'
 gem 'mini_racer', platforms: :ruby
 gem 'pg'
 gem 'puma'
 gem 'rails'
-gem 'simple-navigation'
+gem 'rails-i18n'
 gem 'webpacker'
 
 group :development, :test do

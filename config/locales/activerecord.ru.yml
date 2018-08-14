@@ -1,0 +1,12 @@
+ru:
+  activerecord:
+    model:
+      kit: 'Модель'
+    attributes:
+      kit:
+        article: 'Артикул'
+        description_en: 'Описание по-английски'
+        description_ru: 'Описание'
+        name_en: 'Название по-английски'
+        name_ru: 'Название'
+        year: 'Год выпуска'
