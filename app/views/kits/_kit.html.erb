@@ -1,4 +1,4 @@
-<div id="<%= dom_id(kit) %>" class="columns kit" data-controller="kit" data-kit-images-url="<%= images_kit_url(kit) %>">
+<div id="<%= dom_id(kit) %>" class="columns kit">
   <div class="column is-1 is-size-4 heading">
     <%= link_to kit.article, edit_kit_path(kit) %>
   </div>
@@ -6,16 +6,6 @@
   <div class="column">
     <h2 class="title is-size-4 kit__name"><%= kit.name(:en) %></h2>
     <h2 class="title is-size-4 kit__name"><%= kit.name(:ru) %></h2>
-
-    <!-- <div class="kit__images">
-      <%#= form_with model: kit, class: 'kit__dropzone', data: { target: 'kit.dropzone' } do |f| %>
-        <span class="dz-message">Добавить изображение</span>
-      <%# end %>
-
-      <div class="images" data-target="kit.images">
-        <%#= render collection: kit.images, partial: 'image' %>
-      </div>
-    </div> -->
   </div>
 
   <div class="column is-narrow">

@@ -14,6 +14,11 @@ gem 'rails'
 gem 'rails-i18n'
 gem 'webpacker'
 
+# Создание Excel-файлов
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', github: 'randym/axlsx' # rubocop:disable Bundler/OrderedGems
+gem 'axlsx_rails'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'

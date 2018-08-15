@@ -17,4 +17,16 @@ class Kit < ApplicationRecord
   def name(locale = :en)
     send("name_#{locale}")
   end
+
+  def kit_description(locale = :en)
+    send("kit_description_#{locale}")
+  end
+
+  def prototype_description(locale = :en)
+    send("prototype_description_#{locale}")
+  end
+
+  def packaging_description(locale = :en)
+    send("packaging_description_#{locale}")
+  end
 end

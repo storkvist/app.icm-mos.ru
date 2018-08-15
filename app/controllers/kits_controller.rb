@@ -1,7 +1,17 @@
 class KitsController < ApplicationController
   load_and_authorize_resource
 
-  def index; end
+  def index
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: @kits.to_json(only: %i[article name_en name_ru kit_description_en kit_description_ru prototype_description_en
+                                            prototype_description_ru packaging_description_en packaging_description_ru])
+      end
+      format.xlsx
+      format.xml
+    end
+  end
 
   def new; end
 

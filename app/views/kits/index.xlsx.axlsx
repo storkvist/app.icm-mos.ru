@@ -1,0 +1,17 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: 'Plastic Model Kits') do |sheet|
+  sheet.add_row ['Name', 'Year', 'Plastic Model Kit Description', 'Prototype Description', 'Packaging Description']
+
+  @kits.each do |kit|
+    sheet.add_row [kit.name(:en), kit.year, kit.kit_description(:en), kit.prototype_description(:en), kit.packaging_description(:en)]
+  end
+end
+
+wb.add_worksheet(name: 'Пластиковые модели') do |sheet|
+  sheet.add_row ['Название', 'Год выпуска', 'Описание модели', 'Описание прототипа', 'Описание упаковки']
+
+  @kits.each do |kit|
+    sheet.add_row [kit.name(:ru), kit.year, kit.kit_description(:ru), kit.prototype_description(:ru), kit.packaging_description(:ru)]
+  end
+end
