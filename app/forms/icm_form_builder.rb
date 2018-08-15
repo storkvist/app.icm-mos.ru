@@ -1,4 +1,20 @@
 class IcmFormBuilder < ActionView::Helpers::FormBuilder
+  def file_field_input(method)
+    @template.content_tag(:div, class: 'field') do
+      @template.content_tag(:div, class: 'file has-name is-fullwidth', data: { controller: 'file' }) do
+        @template.content_tag(:label, class: 'file-label') do
+          @template.capture do
+            @template.concat file_field(method, class: 'file-input', data: { target: 'file.input' })
+            @template.concat file_icon(method)
+
+            filename = @object.send(method).try(:filename) || ''
+            @template.concat @template.content_tag(:span, filename, class: 'file-name', data: { target: 'file.filename' })
+          end
+        end
+      end
+    end
+  end
+
   def number_field_input(method, &block)
     help_text = @template.capture(&block) if block_given?
 
@@ -20,6 +36,18 @@ class IcmFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   private
+
+  def file_icon(method)
+    @template.content_tag(:span, class: 'file-cta') do
+      @template.capture do
+        @template.concat @template.content_tag(:span, @template.content_tag('i', nil, class: 'fas fa-upload'), class: 'file-icon')
+
+        action = @object.send(method).attached? ? 'Обновить' : 'Загрузить'
+        label = [action, I18n.t("activerecord.attributes.#{@object.class.model_name.singular}.#{method}")].join(' ')
+        @template.concat @template.content_tag(:span, label, class: 'file-label')
+      end
+    end
+  end
 
   def text_input(method, classes: ['input'], help_text: nil)
     @template.content_tag(:div, class: 'field') do

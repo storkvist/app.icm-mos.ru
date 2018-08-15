@@ -5,3 +5,9 @@ textarea {
   font-size: $body-size;
   padding: 10px;
 }
+
+.file {
+  .file-cta {
+    min-width: 40%;
+  }
+}

@@ -5,10 +5,15 @@ ru:
     attributes:
       kit:
         article: 'Артикул'
+        assembled_photo: 'фото собранной модели'
+        box_art: 'изображение на коробке (бокс-арт)'
         kit_description_en: 'Описание модели по-английски'
         kit_description_ru: 'Описание модели'
+        manual: 'инструкцию (PDF)'
         packaging_description_en: 'Описание упаковки по-английски'
         packaging_description_ru: 'Описание упаковки'
+        packaging_photo: 'фото упаковки'
+        preview: 'превью (изображение в списке товаров)'
         prototype_description_en: 'Описание прототипа модели по-английски'
         prototype_description_ru: 'Описание прототипа модели'
         name_en: 'Название по-английски'

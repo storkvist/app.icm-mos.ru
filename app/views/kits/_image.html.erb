@@ -1,3 +1,13 @@
-<figure class="image">
-  <%= image_tag image.variant(resize: '128x128') %>
-</figure>
+<% if @kit.send(field).attached? %>
+  <div class="columns">
+    <div class="column">
+      <%= form.file_field_input field %>
+    </div>
+
+    <div class="column">
+      <%= image_tag(@kit.send(field).variant(resize: "#{dimensions}>")) %>
+    </div>
+  </div>
+<% else %>
+  <%= form.file_field_input field %>
+<% end %>

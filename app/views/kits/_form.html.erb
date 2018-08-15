@@ -44,6 +44,26 @@
     </div>
   </div>
 
+  <%= render 'image', dimensions: '512x512', field: :box_art, form: form %>
+  <%= render 'image', dimensions: '128x128', field: :preview, form: form %>
+  <%= render 'image', dimensions: '512x512', field: :assembled_photo, form: form %>
+  <%= render 'image', dimensions: '512x512', field: :packaging_photo, form: form %>
+
+  <% if @kit.manual.attached? %>
+    <div class="columns">
+      <div class="column">
+        <%= form.file_field_input :manual %>
+      </div>
+      <div class="column">
+        <%= link_to url_for(@kit.manual) do %>
+          <%= image_tag @kit.manual.preview(resize: '512x512>'), class: 'is-pulled-left' if @kit.manual.attached? %>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <%= form.file_field_input :manual %>
+  <% end %>
+
   <div class="field is-grouped">
     <div class="control">
       <%= form.submit class: 'button is-primary' %>
