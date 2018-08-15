@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_110511) do
+ActiveRecord::Schema.define(version: 2018_08_15_054133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,13 +46,17 @@ ActiveRecord::Schema.define(version: 2018_08_14_110511) do
     t.bigint "scale_id"
     t.bigint "category_id"
     t.string "article"
-    t.text "description_ru"
+    t.text "kit_description_ru"
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name_ru"
     t.string "name_en"
-    t.text "description_en"
+    t.text "kit_description_en"
+    t.text "prototype_description_en"
+    t.text "prototype_description_ru"
+    t.text "packaging_description_en"
+    t.text "packaging_description_ru"
     t.index ["category_id"], name: "index_kits_on_category_id"
     t.index ["scale_id"], name: "index_kits_on_scale_id"
   end

@@ -1,0 +1,7 @@
+@import './variables.scss';
+
+textarea {
+  box-sizing: padding-box;
+  font-size: $body-size;
+  padding: 10px;
+}

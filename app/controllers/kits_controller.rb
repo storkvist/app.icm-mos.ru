@@ -20,13 +20,8 @@ class KitsController < ApplicationController
   def edit; end
 
   def update
-    @kit.images.attach(params[:file]) if params[:file].present?
-
-    if @kit.save
-      respond_to do |format|
-        format.json { render json: { status: :ok } }
-        format.html { redirect_to kits_path, notice: 'Модель обновлена' }
-      end
+    if @kit.update(kit_params)
+      redirect_to kits_path, notice: 'Модель обновлена'
     else
       render :edit
     end
@@ -41,6 +36,7 @@ class KitsController < ApplicationController
   private
 
   def kit_params
-    params.require(:kit).permit(:article, :description_en, :description_ru, :name_en, :name_ru, :year, images: [])
+    params.require(:kit).permit(:article, :kit_description_en, :kit_description_ru, :name_en, :name_ru, :packaging_description_en,
+                                :packaging_description_ru, :prototype_description_en, :prototype_description_ru, :year, images: [])
   end
 end

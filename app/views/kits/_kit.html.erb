@@ -7,22 +7,15 @@
     <h2 class="title is-size-4 kit__name"><%= kit.name(:en) %></h2>
     <h2 class="title is-size-4 kit__name"><%= kit.name(:ru) %></h2>
 
-    <p>
-      <%= kit.description(:en) %>
-    </p>
-    <p>
-      <%= kit.description(:ru) %>
-    </p>
-
-    <div class="kit__images">
-      <%= form_with model: kit, class: 'kit__dropzone', data: { target: 'kit.dropzone' } do |f| %>
+    <!-- <div class="kit__images">
+      <%#= form_with model: kit, class: 'kit__dropzone', data: { target: 'kit.dropzone' } do |f| %>
         <span class="dz-message">Добавить изображение</span>
-      <% end %>
+      <%# end %>
 
       <div class="images" data-target="kit.images">
-        <%= render collection: kit.images, partial: 'image' %>
+        <%#= render collection: kit.images, partial: 'image' %>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <div class="column is-narrow">

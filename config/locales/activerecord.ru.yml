@@ -5,8 +5,12 @@ ru:
     attributes:
       kit:
         article: 'Артикул'
-        description_en: 'Описание по-английски'
-        description_ru: 'Описание'
+        kit_description_en: 'Описание модели по-английски'
+        kit_description_ru: 'Описание модели'
+        packaging_description_en: 'Описание упаковки по-английски'
+        packaging_description_ru: 'Описание упаковки'
+        prototype_description_en: 'Описание прототипа модели по-английски'
+        prototype_description_ru: 'Описание прототипа модели'
         name_en: 'Название по-английски'
         name_ru: 'Название'
         year: 'Год выпуска'

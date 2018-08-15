@@ -1,26 +1,52 @@
-<%= form_with model: @kit, local: true do |f| %>
-  <%= f.text_field_input :article %>
+<%= form_with model: @kit, local: true do |form| %>
+  <%= form.text_field_input :article %>
 
-  <%= f.text_field_input :name_en %>
-  <%= f.text_field_input :name_ru %>
+  <%= form.number_field_input :year do %>
+    Можно заполнять только для моделей текущего года (<%= Time.zone.today.year %>). В таком случае, они могут быть помечены, как
+    «Новинка». Для остальных моделей это поле можно и не заполнять, если не хочется.
+  <% end %>
 
-  <%= f.text_area_input :description_en %>
-  <%= f.text_area_input :description_ru %>
+  <br>
 
-  <div class="field">
-    <%= f.label :year, class: 'label' %>
-    <div class="control">
-      <%= f.number_field :year, class: 'input' %>
+  <div class="columns">
+    <div class="column">
+      <%= form.text_field_input :name_en %>
     </div>
-    <p class="help">
-      Можно заполнять только для моделей текущего года (<%= Time.zone.today.year %>). В таком случае, они могут быть помечены, как
-      «Новинка». Для остальных моделей это поле можно и не заполнять, если не хочется.
-    </p>
+    <div class="column">
+      <%= form.text_field_input :name_ru %>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <%= form.text_area_input :prototype_description_en %>
+    </div>
+    <div class="column">
+      <%= form.text_area_input :prototype_description_ru %>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <%= form.text_area_input :kit_description_en %>
+    </div>
+    <div class="column">
+      <%= form.text_area_input :kit_description_ru %>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <%= form.text_area_input :packaging_description_en %>
+    </div>
+    <div class="column">
+      <%= form.text_area_input :packaging_description_ru %>
+    </div>
   </div>
 
   <div class="field is-grouped">
     <div class="control">
-      <%= f.submit class: 'button is-primary' %>
+      <%= form.submit class: 'button is-primary' %>
     </div>
 
     <div class="control">
