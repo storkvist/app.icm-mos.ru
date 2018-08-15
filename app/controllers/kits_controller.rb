@@ -17,7 +17,7 @@ class KitsController < ApplicationController
 
   def create
     if @kit.save
-      redirect_to kits_path, notice: 'Модель добавлена'
+      redirect_to edit_kit_path(@kit), notice: 'Модель добавлена'
     else
       render :new
     end
@@ -39,7 +39,7 @@ class KitsController < ApplicationController
     @kit.manual.attach(kit_params[:manual]) if kit_params[:manual].present?
 
     if @kit.update(kit_params)
-      redirect_to kits_path, notice: 'Модель обновлена'
+      redirect_to edit_kit_path(@kit), notice: 'Модель обновлена'
     else
       render :edit
     end
