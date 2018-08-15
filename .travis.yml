@@ -1,17 +1,16 @@
 env:
-  global:
-    - CC_TEST_REPORTER_ID=86488449613d4ae5566e7f3ed2f4cb9758a96a68bef9a8f9d1564950d91e5210
+  secure: hyuLcXtbbptuwoD1uZ9mluBIItojo2XuWXNy8so2G2gQ/TxaplNiEtB8WOGpk5Ynd2Ja+rHERqhOhxI52/7H/4RrNqN1lWz1jWx3TI971WPKNifvFnm/SaG48y+ibC0tbte8WKd6o6fJ9iR8Enk9J2Kcf2IEUeMAaT0ppsyUICpfbXss3zpJqYLPNlJ2EUKqBZBs7B3QkPPUC3DVCHJofnp+m4mVyMZtynGvOPUtggPdFSwLZTzuVOIqWoye+1HUnZYVJRyKczaG5AyXDi6271g0pl4OEnlLRtPBe5SgJplXdbTqlzRDtBqVihOm5Zx/nZYu5tdLNp4QPRbicEdtMX6w301Tn6uU+474eaQlgKFaf7IUabMcregwfXGQqHeHP6GP0T6X/TAQv+efYCkVAosb8Gr3hKRSxmB3hrlXlHrDOj/48P/x3piSyxcoqFSoIMy4bewpFH+rCuTK8EdW+VFDDEKm6convqKedegzYtc/nFmSNUPbBHbbyMPeEFVYG6MnE+s9WkIOy3aYXcHk3PjKReuXBM+0PIqrKCmOOOSW7lJ2CSLbUVcVwHVwe6B4IBYj2xSOGaJil0KEGhijhlo6wAMdbsik/EMaL1IvaG2BBhkMcljtxIw/6Ax/WTudWNSZdNpI8M8CjKyQr5I/LZriGwiUyClEoVbKJaQeFZU=
 language: ruby
 rvm:
-  - 2.5.1
+- 2.5.1
 services:
-  - postgresql
+ - postgresql
 before_script:
-  - psql -c 'create database icm_test;' -U postgres
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+- psql -c 'create database icm_test;' -U postgres
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 script:
-  - bundle exec rspec
+- bundle exec rspec
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
