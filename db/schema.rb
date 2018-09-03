@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_054133) do
+ActiveRecord::Schema.define(version: 2018_09_03_124905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_054133) do
     t.text "prototype_description_ru"
     t.text "packaging_description_en"
     t.text "packaging_description_ru"
+    t.string "barcode"
     t.index ["category_id"], name: "index_kits_on_category_id"
     t.index ["scale_id"], name: "index_kits_on_scale_id"
   end

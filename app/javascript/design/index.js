@@ -5,3 +5,4 @@ import './layout.scss'
 import './forms.scss'
 
 import './kits.scss'
+import './scales.scss'

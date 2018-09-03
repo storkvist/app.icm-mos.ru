@@ -10,6 +10,7 @@ class Kit < ApplicationRecord
   has_one_attached :manual
 
   validates :article, :name_en, presence: true
+  validates :barcode, allow_blank: true, numericality: { only_integer: true }
   validates :year, allow_blank: true, numericality: { greater_than_or_equal_to: 2000, less_than_or_equal_to: Time.zone.today.year + 1 }
 
   default_scope { order(:article, :name_en) }

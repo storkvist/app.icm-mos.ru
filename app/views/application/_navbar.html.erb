@@ -1,29 +1,33 @@
 <nav class="navbar is-active" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://app.icm-mos.ru">
+    <a class="navbar-item" href="/">
       <%= image_tag asset_pack_path('images/icm.png'), alt: 'ICM' %>
     </a>
   </div>
 
   <div class="navbar-menu is-active">
-    <div class="navbar-start">
-      <%= link_to 'Модели', kits_path, class: 'navbar-item' %>
+    <% if user_signed_in? %>
+      <div class="navbar-start">
+        <%= link_to 'Модели', kits_path, class: 'navbar-item' %>
+        
+        <%#= link_to 'Масштабы', scales_path, class: 'navbar-item is-active' %>
 
-      <%= link_to kits_path(format: :xlsx), class: 'navbar-item' do %>
-        <%= icon('file-excel') %>
-        <span>Excel</span>
-      <% end %>
+        <%= link_to kits_path(format: :xlsx), class: 'navbar-item' do %>
+          <%= icon('file-excel') %>
+          <span>Excel</span>
+        <% end %>
 
-      <%= link_to kits_path(format: :xml), class: 'navbar-item' do %>
-        <%= icon('file-export') %>
-        <span>XML</span>
-      <% end %>
+        <%= link_to kits_path(format: :xml), class: 'navbar-item' do %>
+          <%= icon('file-export') %>
+          <span>XML</span>
+        <% end %>
 
-      <%= link_to kits_path(format: :json), class: 'navbar-item' do %>
-        <%= icon('file-export') %>
-        <span>JSON</span>
-      <% end %>
-    </div>
+        <%= link_to kits_path(format: :json), class: 'navbar-item' do %>
+          <%= icon('file-export') %>
+          <span>JSON</span>
+        <% end %>
+      </div>
+    <% end %>
 
     <div class="navbar-end">
       <% if user_signed_in? %>

@@ -1,6 +1,10 @@
 <%= form_with model: @kit, local: true do |form| %>
   <%= form.text_field_input :article %>
 
+  <%= form.text_field_input :barcode %>
+
+  <%= form.select_input :scale_id, Scale.order_by_name, :id, :name %>
+
   <%= form.number_field_input :year do %>
     Можно заполнять только для моделей текущего года (<%= Time.zone.today.year %>). В таком случае, они могут быть помечены, как
     «Новинка». Для остальных моделей это поле можно и не заполнять, если не хочется.

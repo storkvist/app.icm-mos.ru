@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+.kit {
+  &:not(:last-child) {
+    border-bottom: 1px solid $grey-light;
+  }
+
+  &__name {
+    margin-bottom: 0.5rem !important;
+  }  
+}

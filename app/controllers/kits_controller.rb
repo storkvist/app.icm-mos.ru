@@ -5,8 +5,9 @@ class KitsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        render json: @kits.to_json(only: %i[article year name_en name_ru kit_description_en kit_description_ru prototype_description_en
-                                            prototype_description_ru packaging_description_en packaging_description_ru])
+        render json: @kits.to_json(only: %i[article barcode year name_en name_ru kit_description_en kit_description_ru
+                                            prototype_description_en prototype_description_ru packaging_description_en
+                                            packaging_description_ru scale])
       end
       format.xlsx
       format.xml
@@ -54,8 +55,8 @@ class KitsController < ApplicationController
   private
 
   def kit_params
-    params.require(:kit).permit(:article, :assembled_photo, :box_art, :kit_description_en, :kit_description_ru, :manual, :name_en, :name_ru,
-                                :packaging_description_en, :packaging_description_ru, :packaging_photo, :prototype_description_en,
-                                :prototype_description_ru, :year, images: [])
+    params.require(:kit).permit(:article, :barcode, :assembled_photo, :box_art, :kit_description_en, :kit_description_ru, :manual, :name_en,
+                                :name_ru, :packaging_description_en, :packaging_description_ru, :packaging_photo, :prototype_description_en,
+                                :prototype_description_ru, :scale_id, :year, images: [])
   end
 end

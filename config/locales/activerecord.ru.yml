@@ -6,6 +6,7 @@ ru:
       kit:
         article: 'Артикул'
         assembled_photo: 'фото собранной модели'
+        barcode: 'Штрих-код'
         box_art: 'изображение на коробке (бокс-арт)'
         kit_description_en: 'Описание модели по-английски'
         kit_description_ru: 'Описание модели'
@@ -16,6 +17,7 @@ ru:
         preview: 'превью (изображение в списке товаров)'
         prototype_description_en: 'Описание прототипа модели по-английски'
         prototype_description_ru: 'Описание прототипа модели'
+        scale_id: 'Масштаб'
         name_en: 'Название по-английски'
         name_ru: 'Название'
         year: 'Год выпуска'
