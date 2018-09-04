@@ -8,6 +8,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'mini_magick'
 gem 'mini_racer', platforms: :ruby
+gem 'paper_trail'
 gem 'pg'
 gem 'puma'
 gem 'rails'

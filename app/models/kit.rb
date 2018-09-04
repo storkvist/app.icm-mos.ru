@@ -1,4 +1,6 @@
 class Kit < ApplicationRecord
+  has_paper_trail
+
   belongs_to :category, optional: true
   belongs_to :scale, optional: true
 

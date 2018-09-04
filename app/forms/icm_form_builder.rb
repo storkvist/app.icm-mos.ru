@@ -44,7 +44,7 @@ class IcmFormBuilder < ActionView::Helpers::FormBuilder
       @template.capture do
         select = @template.content_tag(:div, class: 'select') do
           options = if value_method.present? && text_method.present?
-                      @template.options_from_collection_for_select(collection, value_method, text_method, @object.send(method))
+                      @template.options_from_collection_for_select(collection_or_options, value_method, text_method, @object.send(method))
                     else
                       collection_or_options
                     end
