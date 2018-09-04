@@ -28,7 +28,7 @@
         <td><%= link_to kit.article, kit %></td>
         <td><%= kit.name(:ru) %></td>
         <td><%= kit.scale&.name %></td>
-        <td><%= kit.barcode %></td>
+        <td class="is-monospaced"><%= kit.barcode %></td>
 
         <% if can?(:update, kit) %>
           <td>
