@@ -1,0 +1,10 @@
+@import './variables';
+
+.table {
+  thead.is-sticky th {
+    background-color: $grey-light;
+    color: findColorInvert($grey-light);
+    position: sticky;
+    top: 0;
+  }
+}
