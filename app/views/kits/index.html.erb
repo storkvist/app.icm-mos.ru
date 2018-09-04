@@ -2,4 +2,36 @@
   <%= link_to 'Добавить ещё одну модель', new_kit_path, class: 'button' %>
 </div>
 
-<%= render @kits %>
+<table class="table is-bordered is-fullwidth is-striped">
+  <thead>
+    <tr>
+      <th>Артикул</th>
+      <th>Наименование</th>
+      <th>Масштаб</th>
+      <th>Штрих-код</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @kits.each do |kit| %>
+      <tr>
+        <td><%= link_to kit.article, kit %></td>
+        <td><%= kit.name(:ru) %></td>
+        <td><%= kit.scale&.name %></td>
+        <td><%= kit.barcode %></td>
+
+        <td>
+          <%= link_to 'редактировать', edit_kit_path(kit) %>
+        </td>
+        <td>
+          <%= link_to 'удалить', kit, method: :delete, class: 'has-text-danger', data: { confirm: 'Вы уверены?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="actions">
+  <%= link_to 'Добавить ещё одну модель', new_kit_path, class: 'button' %>
+</div>

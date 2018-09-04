@@ -3,7 +3,7 @@
 
   <%= form.text_field_input :barcode %>
 
-  <%= form.select_input :scale_id, Scale.order_by_name, :id, :name %>
+  <%= form.select_input :scale_id, Scale.order_by_name, :id, :name, prompt: 'масштаб не указан' %>
 
   <%= form.number_field_input :year do %>
     Можно заполнять только для моделей текущего года (<%= Time.zone.today.year %>). В таком случае, они могут быть помечены, как

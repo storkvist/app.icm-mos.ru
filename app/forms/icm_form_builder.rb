@@ -23,11 +23,11 @@ class IcmFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  def select_input(method, collection, value_method, text_method)
+  def select_input(method, collection, value_method, text_method, prompt: nil)
     @template.content_tag(:div, class: 'field') do
       @template.capture do
         select = @template.content_tag(:div, class: 'select') do
-          select(method, @template.options_from_collection_for_select(collection, value_method, text_method, @object.send(method)))
+          select(method, @template.options_from_collection_for_select(collection, value_method, text_method, @object.send(method)), prompt: prompt)
         end
 
         @template.concat(label(method, class: 'label'))
