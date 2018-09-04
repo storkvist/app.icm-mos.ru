@@ -1,0 +1,24 @@
+<%= form_with model: @user, local: true do |form| %>
+  <%= form.text_field_input :name %>
+  <%= form.email_field_input :email %>
+
+  <%= form.password_field_input :password do %>
+    <% if form.object.persisted? %>
+      Необходимо указывать только в том случае, если нужно поменять пароль пользователя.
+    <% end %>
+  <% end %>
+
+  <%= form.select_input :permission,
+                        options_for_select(User.permissions.keys.map { |key| [t("activerecord.attributes.user.#{key}"), key] },
+                                           form.object.permission) %>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit class: 'button is-primary' %>
+    </div>
+
+    <div class="control">
+      <%= link_to 'ко всем пользователям', users_path, class: 'button is-text' %>
+    </div>
+  </div>
+<% end %>

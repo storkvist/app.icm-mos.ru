@@ -1,0 +1,52 @@
+<% content_for(:actions) do %>
+  <% if can?(:create, User) %>
+    <div class="actions">
+      <%= link_to 'Добавить пользователя', new_user_path, class: 'button' %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= content_for(:actions) %>
+
+<table class="table is-bordered is-fullwidth is-striped">
+  <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Электронная почта</th>
+      <th>Зарегистрирован</th>
+      <th>Права доступа</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= l(user.created_at, format: :long) %></td>
+
+        <td>
+          <% if user.read_kits? %>
+            <span class="tag is-light">Просмотр моделей</span>
+          <% end %>
+          <% if user.update_kits? %>
+            <span class="tag is-warning">Изменение моделей</span>
+          <% end %>
+          <% if user.manage_all? %>
+            <span class="tag is-danger">Полный доступ</span>
+          <% end %>
+        </td>
+
+        <td>
+          <%= link_to 'редактировать', edit_user_path(user) %>
+        </td>
+        <td>
+          <%= link_to 'удалить', user, method: :delete, class: 'has-text-danger', data: { confirm: 'Вы уверены?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= content_for(:actions) %>

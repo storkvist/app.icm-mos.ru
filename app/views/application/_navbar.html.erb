@@ -1,31 +1,37 @@
 <nav class="navbar is-active" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">
+    <%= link_to (user_signed_in? ? '/home' : '/'), class: 'navbar-item' do %>
       <%= image_tag asset_pack_path('images/icm.png'), alt: 'ICM' %>
-    </a>
+    <% end %>
   </div>
 
   <div class="navbar-menu is-active">
     <% if user_signed_in? %>
       <div class="navbar-start">
-        <%= link_to 'Модели', kits_path, class: 'navbar-item' %>
-        
+        <% if can?(:read, Kit) %>
+          <%= link_to 'Модели', kits_path, class: 'navbar-item' %>
+        <% end %>
+
+        <% if can?(:manage, User) %>
+          <%= link_to 'Пользователи', users_path, class: 'navbar-item' %>
+        <% end %>
+
         <%#= link_to 'Масштабы', scales_path, class: 'navbar-item is-active' %>
 
-        <%= link_to kits_path(format: :xlsx), class: 'navbar-item' do %>
-          <%= icon('file-excel') %>
+        <!-- <%#= link_to kits_path(format: :xlsx), class: 'navbar-item' do %>
+          <%#= icon('file-excel') %>
           <span>Excel</span>
-        <% end %>
+        <%# end %>
 
-        <%= link_to kits_path(format: :xml), class: 'navbar-item' do %>
-          <%= icon('file-export') %>
+        <%#= link_to kits_path(format: :xml), class: 'navbar-item' do %>
+          <%#= icon('file-export') %>
           <span>XML</span>
-        <% end %>
+        <%# end %>
 
-        <%= link_to kits_path(format: :json), class: 'navbar-item' do %>
-          <%= icon('file-export') %>
+        <%#= link_to kits_path(format: :json), class: 'navbar-item' do %>
+          <%#= icon('file-export') %>
           <span>JSON</span>
-        <% end %>
+        <%# end %> -->
       </div>
     <% end %>
 

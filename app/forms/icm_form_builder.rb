@@ -1,4 +1,12 @@
 class IcmFormBuilder < ActionView::Helpers::FormBuilder
+  def email_field_input(method, &block)
+    help_text = @template.capture(&block) if block_given?
+
+    text_input(method, help_text: help_text) do |classes|
+      email_field(method, class: classes.join(' '))
+    end
+  end
+
   def file_field_input(method)
     @template.content_tag(:div, class: 'field') do
       @template.content_tag(:div, class: 'file has-name is-fullwidth', data: { controller: 'file' }) do
@@ -23,11 +31,25 @@ class IcmFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  def select_input(method, collection, value_method, text_method, prompt: nil)
+  def password_field_input(method, &block)
+    help_text = @template.capture(&block) if block_given?
+
+    text_input(method, help_text: help_text) do |classes|
+      password_field(method, class: classes.join(' '))
+    end
+  end
+
+  def select_input(method, collection_or_options, value_method = nil, text_method = nil, prompt: nil)
     @template.content_tag(:div, class: 'field') do
       @template.capture do
         select = @template.content_tag(:div, class: 'select') do
-          select(method, @template.options_from_collection_for_select(collection, value_method, text_method, @object.send(method)), prompt: prompt)
+          options = if value_method.present? && text_method.present?
+                      @template.options_from_collection_for_select(collection, value_method, text_method, @object.send(method))
+                    else
+                      collection_or_options
+                    end
+
+          select(method, options, prompt: prompt)
         end
 
         @template.concat(label(method, class: 'label'))

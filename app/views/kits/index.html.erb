@@ -1,6 +1,12 @@
-<div class="actions">
-  <%= link_to 'Добавить ещё одну модель', new_kit_path, class: 'button' %>
-</div>
+<% content_for(:actions) do %>
+  <% if can?(:create, Kit) %>
+    <div class="actions">
+      <%= link_to 'Добавить ещё одну модель', new_kit_path, class: 'button' %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= content_for(:actions) %>
 
 <table class="table is-bordered is-fullwidth is-striped">
   <thead>
@@ -9,8 +15,11 @@
       <th>Наименование</th>
       <th>Масштаб</th>
       <th>Штрих-код</th>
-      <th></th>
-      <th></th>
+
+      <% if can?(:update, Kit) %>
+        <th></th>
+        <th></th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -21,17 +30,17 @@
         <td><%= kit.scale&.name %></td>
         <td><%= kit.barcode %></td>
 
-        <td>
-          <%= link_to 'редактировать', edit_kit_path(kit) %>
-        </td>
-        <td>
-          <%= link_to 'удалить', kit, method: :delete, class: 'has-text-danger', data: { confirm: 'Вы уверены?' } %>
-        </td>
+        <% if can?(:update, kit) %>
+          <td>
+            <%= link_to 'редактировать', edit_kit_path(kit) %>
+          </td>
+          <td>
+            <%= link_to 'удалить', kit, method: :delete, class: 'has-text-danger', data: { confirm: 'Вы уверены?' } %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<div class="actions">
-  <%= link_to 'Добавить ещё одну модель', new_kit_path, class: 'button' %>
-</div>
+<%= content_for(:actions) %>
