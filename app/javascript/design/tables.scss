@@ -2,8 +2,8 @@
 
 .table {
   thead.is-sticky th {
-    background-color: $grey-light;
-    color: findColorInvert($grey-light);
+    background-color: $white-ter;
+    color: findColorInvert($white-ter);
     position: sticky;
     top: 0;
   }
