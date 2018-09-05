@@ -1,5 +1,27 @@
 @import './variables.scss';
 
+.kits {
+  &__article {
+    width: 92px;
+
+    &-filter input {
+      width: 50px;
+    }
+  }
+
+  &__scale {
+    width: 103px;
+  }
+
+  &__barcode {
+    width: 150px;
+
+    &-filter input {
+      width: 125px;
+    }
+  }
+}
+
 .kit {
   &:not(:last-child) {
     border-bottom: 1px solid $grey-light;

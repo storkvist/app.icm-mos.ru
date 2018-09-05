@@ -8,27 +8,55 @@
 
 <%= content_for(:actions) %>
 
-<table class="table is-bordered is-fullwidth is-striped">
+<table class="table is-bordered is-fullwidth is-striped kits" data-controller="table">
   <thead class="is-sticky">
     <tr>
-      <th>Артикул</th>
+      <th class="kits__article">Артикул</th>
       <th>Наименование</th>
-      <th>Масштаб</th>
-      <th>Штрих-код</th>
+      <th class="kits__scale">Масштаб</th>
+      <th class="kits__barcode">Штрих-код</th>
 
       <% if can?(:update, Kit) %>
         <th></th>
         <th></th>
       <% end %>
+
+      <th></th>
+    </tr>
+    <tr class="filters">
+      <th class="kits__article kits__article-filter">
+        <input type="text" class="input is-small">
+      </th>
+      <th>
+        <input type="text" class="input is-small">
+      </th>
+      <th class="kits__scale kits__scale-filter">
+        <div class="select is-small">
+          <%= select_tag :scale, options_from_collection_for_select(Scale.order_by_name, :id, :name), prompt: 'любой',
+                         data: { action: 'input->table#filter', target: 'table.filter', class: 'kits__scale' } %>
+        </div>
+      </th>
+      <th class="kits__barcode kits__barcode-filter">
+        <input type="text" class="input is-small">
+      </th>
+
+      <% if can?(:update, Kit) %>
+        <th></th>
+        <th></th>
+      <% end %>
+
+      <th>
+        <input type="checkbox">
+      </th>
     </tr>
   </thead>
   <tbody>
     <% @kits.each do |kit| %>
       <tr>
-        <td><%= link_to kit.article, kit %></td>
+        <td class="kits__article"><%= link_to kit.article, kit %></td>
         <td><%= kit.name(:ru) %></td>
-        <td><%= kit.scale&.name %></td>
-        <td class="is-monospaced"><%= kit.barcode %></td>
+        <td class="kits__scale"><%= kit.scale&.name %></td>
+        <td class="is-monospaced kits__barcode"><%= kit.barcode %></td>
 
         <% if can?(:update, kit) %>
           <td>
@@ -38,6 +66,10 @@
             <%= link_to 'удалить', kit, method: :delete, class: 'has-text-danger', data: { confirm: 'Вы уверены?' } %>
           </td>
         <% end %>
+
+        <td>
+          <input type="checkbox">
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,10 +1,27 @@
 @import './variables';
 
 .table {
-  thead.is-sticky th {
-    background-color: $white-ter;
-    color: findColorInvert($white-ter);
-    position: sticky;
-    top: 0;
+  thead.is-sticky tr {
+    th {
+      background-color: $white-ter;
+      color: findColorInvert($white-ter);
+      position: sticky;
+    }
+
+    &:first-child th {
+      top: 0;
+      z-index: 10;
+    }
+
+    &:last-child th {
+      top: 2.55rem;
+      z-index: 10;
+    }
+  }
+
+  .filters {
+    input {
+      
+    }
   }
 }
