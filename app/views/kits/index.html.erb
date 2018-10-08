@@ -1,9 +1,19 @@
 <% content_for(:actions) do %>
-  <% if can?(:create, Kit) %>
-    <div class="actions">
-      <%= link_to 'Добавить ещё одну модель', new_kit_path, class: 'button' %>
+  <div class="actions level">
+    <div class="level-left">
+      <% if can?(:create, Kit) %>
+        <div class="level-item">
+          <%= link_to 'Добавить ещё одну модель', new_kit_path, class: 'button' %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+
+    <div class="level-right">
+      <div class="level-item">
+        <%= render 'kits/export_links' %>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <%= content_for(:actions) %>
@@ -46,7 +56,7 @@
       <% end %>
 
       <th>
-        <input type="checkbox">
+        <input type="checkbox" data-target="table.checkAll" data-action="table#checkAll">
       </th>
     </tr>
   </thead>
@@ -68,7 +78,7 @@
         <% end %>
 
         <td>
-          <input type="checkbox">
+          <input type="checkbox" data-target="table.checkbox" data-action="table#uncheckCheckAll">
         </td>
       </tr>
     <% end %>
