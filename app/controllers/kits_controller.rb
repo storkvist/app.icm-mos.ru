@@ -2,6 +2,8 @@ class KitsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @kits = @kits.where(id: params[:ids]) if params[:ids].present?
+
     respond_to do |format|
       format.html
       format.json do
