@@ -5,6 +5,7 @@ class Ability
     return if user.blank?
 
     can :read, Kit
+    can :manage, Export, user_id: user.id
 
     case user.permission
     when 'update_kits'

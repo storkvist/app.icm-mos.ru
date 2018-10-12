@@ -13,6 +13,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails'
 gem 'rails-i18n'
+gem 'sidekiq'
 gem 'webpacker'
 
 # Создание Excel-файлов
@@ -30,7 +31,9 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rbenv', require: false
+  gem 'capistrano-sidekiq'
   gem 'capistrano3-puma', require: false
+  gem 'i18n-debug'
 end
 
 group :test do

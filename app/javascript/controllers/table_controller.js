@@ -35,30 +35,18 @@ export default class extends Controller {
   }
 
   checkIfSomethingIsSelected() {
+    const link = document.querySelector('.export-selected');
     const selectedItems = this.checkboxTargets.filter((item) => item.checked);
-    const somethingSelected = selectedItems.length > 0;
-    const exportLinks = document.querySelectorAll('.export-links');
-    const exportLinksButton = document.querySelectorAll('.export-links button');
 
-    if (somethingSelected) {
-      exportLinks.forEach((div) => {
-        div.classList.add('is-hoverable');
-      });
-      exportLinksButton.forEach((button) => {
-        button.removeAttribute('disabled');
-      });
+    if (selectedItems.length > 0) {
+      link.classList.remove('is-hidden');
 
-      document.querySelectorAll('.export-links a').forEach((link) => {
-        let href = link.href.replace(/\?.*/, '');
-        link.setAttribute('href', href + '?' + selectedItems.map((item) => `ids[]=${item.value}`).join('&'));
-      });
+      const href = link.href.replace(/\?.*/, '');
+      const ids = selectedItems.map((item) => `kit_ids[]=${item.value}`).join('&');
+
+      link.setAttribute('href', `${href}?${ids}`);
     } else {
-      exportLinks.forEach((div) => {
-        div.classList.remove('is-hoverable');
-      });
-      exportLinksButton.forEach((button) => {
-        button.setAttribute('disabled', true);
-      });
+      link.classList.add('is-hidden');
     }
   }
 }

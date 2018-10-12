@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_04_110609) do
+ActiveRecord::Schema.define(version: 2018_10_11_113526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,23 @@ ActiveRecord::Schema.define(version: 2018_09_04_110609) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "exported_kits", force: :cascade do |t|
+    t.bigint "export_id"
+    t.bigint "kit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["export_id"], name: "index_exported_kits_on_export_id"
+    t.index ["kit_id"], name: "index_exported_kits_on_kit_id"
+  end
+
+  create_table "exports", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "ready", default: false
+    t.index ["user_id"], name: "index_exports_on_user_id"
   end
 
   create_table "kits", force: :cascade do |t|
@@ -98,6 +115,9 @@ ActiveRecord::Schema.define(version: 2018_09_04_110609) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "exported_kits", "exports"
+  add_foreign_key "exported_kits", "kits"
+  add_foreign_key "exports", "users"
   add_foreign_key "kits", "categories"
   add_foreign_key "kits", "scales"
 end

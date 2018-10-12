@@ -2,3 +2,10 @@ ru:
   locale:
     en: На английском
     ru: На русском
+
+  kits:
+    zero: 'нет моделей'
+    one: '1 модель'
+    few: '%{count} модели'
+    other: '%{count} моделей'
+    many: '%{count} моделей'

@@ -12,6 +12,10 @@
           <%= link_to 'Модели', kits_path, class: 'navbar-item' %>
         <% end %>
 
+        <% if can?(:index, Export) %>
+          <%= link_to 'Выгрузки', exports_path, class: 'navbar-item' %>
+        <% end %>
+
         <% if can?(:manage, User) %>
           <%= link_to 'Пользователи', users_path, class: 'navbar-item' %>
         <% end %>

@@ -1,0 +1,48 @@
+<p>Здесь можно скачать запрошенные вами данные по моделям.</p>
+
+<br>
+
+<table class="table is-bordered is-fullwidth is-striped">
+  <thead>
+    <tr>
+      <th>Запрошено</th>
+      <th>Модели</th>
+      <th>Excel</th>
+      <th>JSON</th>
+      <th>XML</th>
+      <th>Фотографии</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @exports.each do |export| %>
+      <tr>
+        <td><%= l(export.created_at, format: :long) %></td>
+        <td><%= t('kits', count: export.exported_kits.count) %></td>
+        <td>
+          <%= link_to export_path(export, format: :xlsx) do %>
+            скачать <%= icon('file-excel') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to export_path(export, format: :json) do %>
+            скачать <%= icon('file') %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to export_path(export, format: :xml) do %>
+            скачать <%= icon('file') %>
+          <% end %>
+        </td>
+        <td>
+          <% if export.zip.attached? %>
+            <%= link_to rails_blob_path(export.zip, disposition: 'attachment') do %>
+              скачать <%= icon('file-archive') %>
+            <% end %>
+          <% else %>
+            подождите пару минут...
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
