@@ -63,7 +63,7 @@
   <tbody>
     <% @kits.each do |kit| %>
       <tr>
-        <td class="kits__article"><%= link_to kit.article, kit %></td>
+        <td class="kits__article"><%= link_to kit.article, edit_kit_path(kit) %></td>
         <td><%= kit.name(:ru) %></td>
         <td class="kits__scale"><%= kit.scale&.name %></td>
         <td class="is-monospaced kits__barcode"><%= kit.barcode %></td>

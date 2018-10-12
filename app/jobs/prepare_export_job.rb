@@ -6,7 +6,7 @@ class PrepareExportJob < ApplicationJob
       export.kits.each do |kit|
         %i[box_art preview assembled_photo packaging_photo manual].each do |field|
           if kit.send(field).attached?
-            IO.binwrite("#{dir}/#{kit.id}_#{field}.#{kit.send(field).filename.extension}", kit.send(field).download)
+            IO.binwrite("#{dir}/#{kit.article}_#{field}.#{kit.send(field).filename.extension}", kit.send(field).download)
           end
         end
       end

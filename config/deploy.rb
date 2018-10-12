@@ -11,3 +11,5 @@ append :linked_files, 'config/master.key'
 
 set :puma_init_active_record, true
 set :puma_preload_app, true
+
+set :init_system, :systemd
