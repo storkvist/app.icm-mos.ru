@@ -13,4 +13,6 @@ install_plugin Capistrano::Puma
 require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git
 
+require 'capistrano/sidekiq'
+
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
