@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = ['filename', 'input']
+  static targets = ['filename', 'input'];
 
   initialize() {
     this.inputTarget.addEventListener('change', () => {
