@@ -6,5 +6,5 @@ class Export < ApplicationRecord
   has_many :exported_kits, dependent: :destroy
   has_many :kits, through: :exported_kits
 
-  after_create { PrepareExportJob.perform_later(self) }
+  after_create_commit { PrepareExportJob.perform_later(self) }
 end
