@@ -7,57 +7,10 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-// http://es5.github.io/#x15.4.4.18
-if (!Array.prototype.forEach) {
-  Array.prototype.forEach = function (callback, thisArg) {
-    var T, k;
-    if (this == null) {
-      throw new TypeError(' this is null or not defined');
-    }
-    var O = Object(this);
-    var len = O.length >>> 0;
-    if (typeof callback !== 'function') {
-      throw new TypeError(callback + ' is not a function');
-    }
-    if (arguments.length > 1) {
-      T = thisArg;
-    }
-    k = 0;
-    while (k < len) {
-      var kValue;
-      if (k in O) {
-        kValue = O[k];
-        callback.call(T, kValue, k, O);
-      }
-      k++;
-    }
-  };
-}
-
-if (!Array.prototype.filter) {
-  Array.prototype.filter = function (fun/*, thisArg*/) {
-    'use strict';
-    if (this === void 0 || this === null) {
-      throw new TypeError();
-    }
-    var t = Object(this);
-    var len = t.length >>> 0;
-    if (typeof fun !== 'function') {
-      throw new TypeError();
-    }
-    var res = [];
-    var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
-    for (var i = 0; i < len; i++) {
-      if (i in t) {
-        var val = t[i];
-        if (fun.call(thisArg, val, i, t)) {
-          res.push(val);
-        }
-      }
-    }
-    return res;
-  };
-}
+import * as Sentry from '@sentry/browser';
+Sentry.init({
+  dsn: 'https://2c6e7aef24fc465f9c7e5fa337c6a1f4:459eff10498646bc9f8b85ff4e8ba11c@sentry.io/1302267'
+});
 
 import Rails from 'rails-ujs';
 Rails.start();

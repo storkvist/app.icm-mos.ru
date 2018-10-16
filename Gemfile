@@ -13,6 +13,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails'
 gem 'rails-i18n'
+gem 'sentry-raven'
 gem 'sidekiq'
 gem 'webpacker'
 

@@ -26,3 +26,7 @@ module Icm # rubocop:disable Style/ClassAndModuleChildren
     config.time_zone = 'Moscow'
   end
 end
+
+Raven.configure do |config|
+  config.dsn = 'https://2c6e7aef24fc465f9c7e5fa337c6a1f4:459eff10498646bc9f8b85ff4e8ba11c@sentry.io/1302267'
+end
