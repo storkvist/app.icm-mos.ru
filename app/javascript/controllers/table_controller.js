@@ -35,9 +35,12 @@ export default class extends Controller {
   }
 
   checkIfSomethingIsSelected() {
-    document.querySelectorAll('.create-export-form input[name="export[kit_ids][]"]').forEach((item) => {
-      item.remove();
-    });
+    let inputs = document.querySelectorAll('.create-export-form input[name="export[kit_ids][]"]');
+    if (inputs.length > 0) {
+      inputs.forEach((item) => {
+        item.remove();
+      });
+    }
 
     const button = document.querySelectorAll('.export-selected');
     const selectedItems = this.checkboxTargets.filter((item) => item.checked);
