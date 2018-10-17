@@ -35,12 +35,9 @@ export default class extends Controller {
   }
 
   checkIfSomethingIsSelected() {
-    let inputs = document.querySelectorAll('.create-export-form input[name="export[kit_ids][]"]');
-    if (inputs.length > 0) {
-      inputs.forEach((item) => {
-        item.remove();
-      });
-    }
+    document.querySelectorAll('.create-export-form input[name="export[kit_ids][]"]').forEach((item) => {
+      item.remove();
+    });
 
     const button = document.querySelectorAll('.export-selected');
     const selectedItems = this.checkboxTargets.filter((item) => item.checked);
@@ -48,13 +45,14 @@ export default class extends Controller {
     if (selectedItems.length > 0) {
       button.forEach((b) => { b.classList.remove('is-hidden') });
 
-      const form = document.querySelector('.create-export-form');
-      selectedItems.forEach((item) => {
-        let checkbox = document.createElement('input');
-        checkbox.type = 'hidden';
-        checkbox.name = 'export[kit_ids][]';
-        checkbox.value = item.value;
-        form.appendChild(checkbox);
+      document.querySelectorAll('.create-export-form').forEach((form) => {
+        selectedItems.forEach((item) => {
+          let checkbox = document.createElement('input');
+          checkbox.type = 'hidden';
+          checkbox.name = 'export[kit_ids][]';
+          checkbox.value = item.value;
+          form.appendChild(checkbox);
+        });
       });
     } else {
       button.forEach((b) => { b.classList.add('is-hidden') });
