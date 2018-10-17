@@ -10,7 +10,11 @@
 
     <div class="level-right">
       <div class="level-item">
-        <%= link_to 'Скачать выбранное', exports_path, method: :post, class: 'button export-selected' %>
+        <%= form_with model: Export.new, local: true, class: 'create-export-form' do |form| %>
+          <%= form.submit 'Скачать выбранное', class: 'button export-selected' %>
+
+          <%#= form.collection_check_boxes :author_ids, Category.all, :id, :name %>
+        <% end %>
       </div>
     </div>
   </div>

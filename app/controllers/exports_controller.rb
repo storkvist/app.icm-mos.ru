@@ -21,10 +21,16 @@ class ExportsController < ApplicationController
   end
 
   def create
-    if Export.create(user: current_user, kit_ids: params[:kit_ids])
+    if @export.save
       redirect_to exports_path
     else
       raise 'Ошибка при выгрузке наборов.'
     end
+  end
+
+  private
+
+  def resource_params
+    params.require(:export).permit(kit_ids: [])
   end
 end
