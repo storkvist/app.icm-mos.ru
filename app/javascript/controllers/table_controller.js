@@ -39,11 +39,11 @@ export default class extends Controller {
       item.remove();
     });
 
-    const link = document.querySelector('.export-selected');
+    const button = document.querySelectorAll('.export-selected');
     const selectedItems = this.checkboxTargets.filter((item) => item.checked);
 
     if (selectedItems.length > 0) {
-      link.classList.remove('is-hidden');
+      button.forEach((b) => { b.classList.remove('is-hidden') });
 
       const form = document.querySelector('.create-export-form');
       selectedItems.forEach((item) => {
@@ -54,7 +54,7 @@ export default class extends Controller {
         form.appendChild(checkbox);
       });
     } else {
-      link.classList.add('is-hidden');
+      button.forEach((b) => { b.classList.add('is-hidden') });
     }
   }
 }
