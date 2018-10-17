@@ -26,6 +26,7 @@
   <thead class="is-sticky">
     <tr>
       <th class="kits__article">Артикул</th>
+      <th>Год</th>
       <th>Наименование</th>
       <th class="kits__scale">Масштаб</th>
       <th class="kits__barcode">Штрих-код</th>
@@ -44,6 +45,9 @@
       <th>
         <input type="text" class="input is-small">
       </th>
+      <th>
+        <input type="text" class="input is-small">
+      </th>
       <th class="kits__scale kits__scale-filter">
         <div class="select is-small">
           <%= select_tag :scale, options_from_collection_for_select(Scale.order_by_name, :id, :name), prompt: 'любой',
@@ -57,6 +61,8 @@
       <% if can?(:update, Kit) %>
         <th></th>
         <th></th>
+      <% else %>
+        <th></th>
       <% end %>
 
       <th>
@@ -67,7 +73,8 @@
   <tbody>
     <% @kits.each do |kit| %>
       <tr>
-        <td class="kits__article"><%= link_to kit.article, edit_kit_path(kit) %></td>
+        <td class="kits__article"><%= link_to kit.article, kit %></td>
+        <td class="kits__year"><%= kit.year %></td>
         <td><%= kit.name(:ru) %></td>
         <td class="kits__scale"><%= kit.scale&.name %></td>
         <td class="is-monospaced kits__barcode"><%= kit.barcode %></td>
@@ -78,6 +85,10 @@
           </td>
           <td>
             <%= link_to 'удалить', kit, method: :delete, class: 'has-text-danger', data: { confirm: 'Вы уверены?' } %>
+          </td>
+        <% else %>
+          <td>
+            <%= link_to 'посмотреть', kit %>
           </td>
         <% end %>
 

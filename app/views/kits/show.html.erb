@@ -1,0 +1,117 @@
+<h1 class="title"><%= @kit.name %></h1>
+
+<div class="content">
+  <dl>
+    <dt><%= t('activerecord.attributes.kit.article') %></dt>
+    <dd><%= @kit.article %></dd>
+  </dl>
+  <dl>
+    <dt><%= t('activerecord.attributes.kit.barcode') %></dt>
+    <dd><%= @kit.barcode %></dd>
+  </dl>
+  <dl>
+    <dt><%= t('activerecord.attributes.kit.scale_id') %></dt>
+    <dd><%= @kit.scale.name %></dd>
+  </dl>
+</div>
+
+<div class="columns">
+  <div class="column content">
+    <dl>
+      <dt><%= t('activerecord.attributes.kit.name_en') %></dt>
+      <dd><%= @kit.name_en %></dd>
+    </dl>
+  </div>
+  <div class="column content">
+    <dl>
+      <dt><%= t('activerecord.attributes.kit.name_ru') %></dt>
+      <dd><%= @kit.name_ru %></dd>
+    </dl>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column content">
+    <dl>
+      <dt><%= t('activerecord.attributes.kit.prototype_description_en') %></dt>
+      <dd><%= @kit.prototype_description_en %></dd>
+    </dl>
+  </div>
+  <div class="column content">
+    <dl>
+      <dt><%= t('activerecord.attributes.kit.prototype_description_ru') %></dt>
+      <dd><%= @kit.prototype_description_ru %></dd>
+    </dl>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column content">
+    <dl>
+      <dt><%= t('activerecord.attributes.kit.kit_description_en') %></dt>
+      <dd><%= @kit.kit_description_en %></dd>
+    </dl>
+  </div>
+  <div class="column content">
+    <dl>
+      <dt><%= t('activerecord.attributes.kit.kit_description_ru') %></dt>
+      <dd><%= @kit.kit_description_ru %></dd>
+    </dl>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column content">
+    <dl>
+      <dt><%= t('activerecord.attributes.kit.packaging_description_en') %></dt>
+      <dd><%= @kit.packaging_description_en %></dd>
+    </dl>
+  </div>
+  <div class="column content">
+    <dl>
+      <dt><%= t('activerecord.attributes.kit.packaging_description_ru') %></dt>
+      <dd><%= @kit.packaging_description_ru %></dd>
+    </dl>
+  </div>
+</div>
+
+<div class="content">
+  <dl>
+    <% if @kit.box_art.attached? %>
+      <dt><%= t('activerecord.attributes.kit.box_art') %></dt>
+      <dd><%= image_tag @kit.box_art.variant(resize: '512x512') %></dd>
+    <% end %>
+
+    <% if @kit.preview.attached? %>
+      <dt><%= t('activerecord.attributes.kit.preview') %></dt>
+      <dd><%= image_tag @kit.preview.variant(resize: '128x128') %></dd>
+    <% end %>
+
+    <% if @kit.assembled_photo.attached? %>
+      <dt><%= t('activerecord.attributes.kit.assembled_photo') %></dt>
+      <dd><%= image_tag @kit.assembled_photo.variant(resize: '512x512') %></dd>
+    <% end %>
+
+    <% if @kit.packaging_photo.attached? %>
+      <dt><%= t('activerecord.attributes.kit.packaging_photo') %></dt>
+      <dd><%= image_tag @kit.packaging_photo.variant(resize: '512x512') %></dd>
+    <% end %>
+
+    <% if @kit.manual.attached? %>
+      <dt><%= t('activerecord.attributes.kit.manual') %></dt>
+      <dd>
+        <%= link_to url_for(@kit.manual) do %>
+          <%= image_tag @kit.manual.preview(resize: '512x512>') %>
+        <% end %>
+      </dd>
+    <% end %>
+  </dl>
+</div>
+
+<div class="is-clearfix"></div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <%= link_to 'назад ко всем моделям', kits_path, class: 'button is-text' %>
+  </div>
+</div>

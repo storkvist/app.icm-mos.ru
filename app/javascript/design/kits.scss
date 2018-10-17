@@ -9,6 +9,14 @@
     }
   }
 
+  &__year {
+    width: 72px;
+
+    &-filter input {
+      width: 100%;
+    }
+  }
+
   &__scale {
     width: 103px;
   }

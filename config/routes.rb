@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :exports, only: %i[index show create]
-  resources :kits, except: :show
+  resources :kits
   resources :scales, only: :index
   resources :users
 
