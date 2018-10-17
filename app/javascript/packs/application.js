@@ -7,6 +7,8 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
+import 'babel-polyfill';
+
 import * as Sentry from '@sentry/browser';
 Sentry.init({
   dsn: 'https://2c6e7aef24fc465f9c7e5fa337c6a1f4:459eff10498646bc9f8b85ff4e8ba11c@sentry.io/1302267'

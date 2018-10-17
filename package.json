@@ -2,6 +2,7 @@
   "name": "app_icm-mos_ru",
   "private": true,
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "@fortawesome/fontawesome-free": "^5.2.0",
     "@rails/webpacker": "3.5",
     "@sentry/browser": "^4.1.1",
