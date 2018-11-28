@@ -20,12 +20,12 @@ class KitsController < ApplicationController
   def update
     if kit_params[:box_art].present?
       @kit.box_art.attach(kit_params[:box_art])
+    end
 
-      if kit_params[:preview].present?
-        @kit.preview.attach(kit_params[:preview])
-      else
-        @kit.preview.attach(kit_params[:box_art])
-      end
+    if kit_params[:preview].present?
+      @kit.preview.attach(kit_params[:preview])
+    elsif kit_params[:box_art].present?
+      @kit.preview.attach(kit_params[:box_art])
     end
 
     @kit.assembled_photo.attach(kit_params[:assembled_photo]) if kit_params[:assembled_photo].present?
