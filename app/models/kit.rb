@@ -4,7 +4,7 @@ class Kit < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :scale, optional: true
 
-  has_many :exported_kits, dependent: :restrict_with_exception
+  has_many :exported_kits, dependent: :destroy
   has_many :exports, through: :exported_kits
 
   has_one_attached :box_art
