@@ -11,9 +11,11 @@ import 'babel-polyfill';
 import 'polyfills';
 
 import * as Sentry from '@sentry/browser';
-Sentry.init({
-  dsn: 'https://2c6e7aef24fc465f9c7e5fa337c6a1f4:459eff10498646bc9f8b85ff4e8ba11c@sentry.io/1302267'
-});
+if (window._rails_env === 'production') {
+  Sentry.init({
+    dsn: 'https://2c6e7aef24fc465f9c7e5fa337c6a1f4:459eff10498646bc9f8b85ff4e8ba11c@sentry.io/1302267'
+  });
+}
 
 import Rails from 'rails-ujs';
 Rails.start();
@@ -27,6 +29,10 @@ import { definitionsFromContext } from 'stimulus/webpack-helpers';
 const application = Application.start();
 const context = require.context('controllers', true, /.js$/);
 application.load(definitionsFromContext(context));
+
+const componentRequireContext = require.context('components', true);
+const ReactRailsUJS = require('react_ujs');
+ReactRailsUJS.useContext(componentRequireContext);
 
 import 'design';
 import 'images';

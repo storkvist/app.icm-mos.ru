@@ -20,7 +20,7 @@ class Kit < ApplicationRecord
 
   default_scope { order(:article, :name_en) }
 
-  def name(locale = :en)
+  def name(locale = :ru)
     send("name_#{locale}")
   end
 

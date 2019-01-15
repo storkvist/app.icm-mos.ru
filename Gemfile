@@ -6,6 +6,7 @@ ruby '2.5.1'
 gem 'cancancan'
 gem 'devise'
 gem 'devise-i18n'
+gem 'jbuilder'
 gem 'mini_magick'
 gem 'mini_racer', platforms: :ruby
 gem 'paper_trail'
@@ -13,6 +14,7 @@ gem 'pg'
 gem 'puma'
 gem 'rails'
 gem 'rails-i18n'
+gem 'react-rails'
 gem 'sentry-raven'
 gem 'sidekiq'
 gem 'webpacker'
@@ -53,8 +55,6 @@ gem 'sass-rails', '~> 5.0'
 # gem 'uglifier', '>= 1.3.0'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
